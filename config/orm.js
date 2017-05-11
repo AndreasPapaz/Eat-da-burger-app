@@ -1,13 +1,23 @@
 var connection = require('../config/connection.js');
 
-function printQuestionMarks(targetObject) {
+// function printQuestionMarks(targetObject) {
+// 	var arr = [];
+
+// 	for (var key in targetObject) {
+// 		if (Object.hasOwnProperty.call(targetObject, key)) {
+// 			arr.push(key + "=" + targetObject[key]);
+// 		}
+// 	}
+// 	return arr.toString();
+// }
+
+function printQuestionMarks(num) {
 	var arr = [];
 
-	for (var key in targetObject) {
-		if (Object.hasOwnProperty.call(targetObject, key)) {
-			arr.push(key + "=" + targetObject[key]);
-		}
+	for (var i = 0; i < num; i++) {
+		arr.push("?");
 	}
+
 	return arr.toString();
 }
 
@@ -20,9 +30,7 @@ var orm = {
 		});
 	},
 	create: function(table, cols, vals, cb) {
-		// var queryString = "INSERT INTO " + table + " (" + cols.toString() + ")" + " VALUES (" + printQuestionMarks(vals.length) + ")";
-		// console.log(queryString);
-
+	
 		var queryString = "INSERT INTO " + table;
 		queryString += " (";
 		queryString += cols.toString();
@@ -34,7 +42,7 @@ var orm = {
 
 		connection.query(queryString, vals, function(err, result) {
 			if (err) {
-				console.log("error at orm " + err);
+				console.log("error at orm create function " + err);
 			}
 			cb(result);
 		});
