@@ -10,13 +10,3 @@ CREATE TABLE burger (
     dt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
-
-INSERT INTO burger (burger_name) VALUES ("McDouble");
-INSERT INTO burger (burger_name) VALUES ("WHOPPER");
-INSERT INTO burger (burger_name) VALUES ("cheese");
-INSERT INTO burger (burger_name) VALUES ("HAM");
-
-SELECT * FROM burger;
-
-drop database burgers_db;
-
