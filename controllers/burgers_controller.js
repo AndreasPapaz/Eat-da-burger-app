@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var burger = require('../models/burger.js');
 
-router.get("/", function(req, res) {
+router.get("/", function(request, response) {
 	burger.all(function(data) {
 		
 		//this is the object that handles the handlebars argument in the .handlebars files.
 		var hbsObject = { burger: data };
 		console.log(hbsObject);
 		//we can see here that it renders the "index" file where handlebars (hbsObject) match with key values. 
-		res.render("index", hbsObject);
+		response.render("index", hbsObject);
 	});
 });
 
@@ -22,7 +22,15 @@ router.post("/api/", function(request, response) {
 		});
 });
 
+router.put('/burger/:id', function(reqest, response) {
 
+	var condition = "id = " + reqest.params.id;
+
+	burger.devour({ devour: true }, condition, function(data) {
+		response.redirect('/');
+	});
+
+});
 
 
 module.exports = router;

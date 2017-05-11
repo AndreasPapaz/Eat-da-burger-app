@@ -10,6 +10,11 @@ var burger = {
 		orm.create("burger", cols, vals, function(data) {
 			cb(data);
 		});
+	},
+	devour: function(objColVal, condition, cb) {
+		orm.devour('burger', objColVal, condition, function(data) {
+			cb(data);
+		});
 	}
 };
 
