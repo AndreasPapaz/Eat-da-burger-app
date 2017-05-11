@@ -17,7 +17,7 @@ router.post("/api/", function(request, response) {
 	var burgerName = request.body.name;
 	
 
-	burger.create("burger_name", "burger", burgerName, function(data) {
+	burger.create(["burger_name"], [request.body.burger_name], function(data) {
 			response.redirect('/');
 		});
 });
