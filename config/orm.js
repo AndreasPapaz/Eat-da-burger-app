@@ -60,7 +60,7 @@ var orm = {
 
 		connection.query(queryString, function(err, result) {
 			if (err) {
-				console.log("err at devour ORM " + err);
+				console.log("err at ORM DEVOUR " + err);
 			}
 			cb(result);
 		});
