@@ -3,7 +3,9 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var exphbs = require('express-handlebars');
 var routes = require("./controllers/burgers_controller.js");
-var connection = require('../config/connection.js');
+
+//test for connection to server
+var connection = require('./config/connection.js');
 
 var PORT = 3000;
 var app = express();
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(methodOverride("_method"));
 
 
-app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+app.engine("handlebars", exphbs({ defaultLayout: "main",}));
 app.set("view engine", "handlebars");
 
 
