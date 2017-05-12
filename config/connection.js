@@ -6,6 +6,7 @@ var connection;
 
 if(process.env.JAWSDB_URL){
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
+	console.log("jaws!!!!!");
 } else {
 	connection = mysql.createConnection({
 		port: '3306',
@@ -14,6 +15,7 @@ if(process.env.JAWSDB_URL){
 		password: '',
 		database: 'burgers_db'
 	});
+	console.log("no jaws");
 }
 
 //Create connection
