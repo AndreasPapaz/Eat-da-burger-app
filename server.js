@@ -5,10 +5,11 @@ var exphbs = require('express-handlebars');
 var routes = require("./controllers/burgers_controller.js");
 
 //test for connection to server
-var connection = require('./config/connection.js');
+// var connection = require('./config/connection.js');
 
-var PORT = 3000;
+// var PORT = 3000;
 var app = express();
+app.set("port", (process.env.PORT || 3000));
 
 
 app.use(express.static(process.cwd() + "/public"));
@@ -22,7 +23,12 @@ app.set("view engine", "handlebars");
 
 
 app.use('/', routes);
-app.listen(PORT, function() {
-	console.log("Hey, You are connected on PORT : " + PORT);
-	console.log("Press cntrl + c to quit server");
+app.listen(app.get("port"), function() {
+	console.log("You are running on port", app.get("port"));
 });
+
+
+// app.listen(PORT, function() {
+// 	console.log("Hey, You are connected on PORT : " + PORT);
+// 	console.log("Press cntrl + c to quit server");
+// });
