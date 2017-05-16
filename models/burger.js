@@ -15,6 +15,11 @@ var burger = {
 		orm.devour('burger', objColVal, condition, function(data) {
 			cb(data);
 		});
+	},
+	refresh: function(objColVal, condition, cb) {
+		orm.refresh("burger", objColVal, condition, function(data) {
+			cb(data);
+		});
 	}
 };
 

@@ -64,6 +64,22 @@ var orm = {
 			}
 			cb(result);
 		});
+	},
+	refresh: function(table, objColVal, condition, cb) {
+		var queryString = "UPDATE " + table;
+		queryString += " SET ";
+		queryString += objColVal(objColVal);
+		queryString += " WHERE ";
+		queryString += condition;
+
+		console.log(queryString);
+
+		connection.query(query, function(err, result) {
+			if (err) {
+				console.log("err at ORM re order" + err);
+			}
+			cb(result);
+		})
 	}
 };
 

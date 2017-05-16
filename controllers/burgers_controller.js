@@ -29,8 +29,17 @@ router.put('/burger/:id', function(reqest, response) {
 	burger.devour({ devoured: true }, condition, function(data) {
 		response.redirect('/');
 	});
-
 });
+
+router.put('/burger_reorder/:id', function(request, response) {
+
+	var condition = "id = " + request.params.id;
+
+	burger.refresh({ devoured: false }, condition, function(data) {
+		response.redirect('/');
+	});
+})
+
 
 
 module.exports = router;
